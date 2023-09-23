@@ -1,0 +1,29 @@
+.order{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /* border: 2px solid black; */
+    width: 80%;
+    margin: 0 auto;
+    background-color: whitesmoke;
+}
+
+
+
+@media(max-width:500px){
+.order .checkoutProduct__title{
+    font-size: 10px;
+
+}
+.order{
+    width: 100%;
+}
+}
+
+@media(max-width:400px){
+.order .checkoutProduct img{
+    width: 130px;
+    margin-left: 8px;
+}
+}
+

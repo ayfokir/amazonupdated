@@ -1,0 +1,54 @@
+
+/*  Around 50 minute*/
+
+.checkout__ad{
+    width: 100%;
+    margin-bottom: 10px;
+    /* height:750px; */
+    /* object-fit: contain; */
+  
+    
+}
+/* .checkout__left{
+    width: 100%;
+} */
+.checkout__title{
+    margin-right: 10px;
+    padding: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.checkout{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    background-color: white;
+    height: max-content;
+}
+.checkout_product{
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 40px;
+    justify-content: center;
+}
+
+ @media(max-width:460px){
+    .checkout__left {
+   font-size: 10px;
+    }
+    /* .checkout__left .checkout__ad{
+        display: none;
+    } */
+
+    .checkout__left .checkoutProduct__title {
+        font-size: 14px;
+    }
+} 
+
+ @media(max-width:380px){
+
+  .checkout__left .checkoutProduct__title {
+        font-size: 11px;
+    }
+ }
+
