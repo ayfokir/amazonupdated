@@ -13,6 +13,12 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Components/Order/Orders";
 import Footer from "./Components/Footer/Footer";
+import Dashboard from "./Components/Admin/Dashboard";
+import Product from "./Components/Admin/Product";
+import EditProduct from './Components/Admin/EditProduct'
+import AddProduct from "./Components/Admin/AddProduct";
+import OrdersFromAddmin from './Components/Admin/Order'
+import For04 from "./Components/For04";
 const promise = loadStripe(
   "pk_test_51NXOrgCBiUKA11IcVYRSRdhzft8mVKrVltXfZVtggsd2KdhS5ldojNtz76LE6PkwfDFWHzj4csySAzHxWPj146ld00ECoomGO4"
 );
@@ -39,7 +45,9 @@ function App() {
   const [{}, dispatch] = useStatevalue();
   useEffect(() => {
     auth.onAuthStateChanged((auther) => {
-      if (auther) {
+      if ( auther )
+      {
+        console.log( auther );
         dispatch({
           // here dispatch is action
           type: "SET__USER", // action type
@@ -59,8 +67,16 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/orders" element={ <><Header /> <Orders />  </> } > </Route>
         <Route path="/" element={ <>   <Header /> <Home /> <Footer /> </> }></Route>
-        <Route   path="/payment"element={   <> <Header /><Elements stripe={promise}>  <Payment /> </Elements></> } ></Route>
-        <Route path="/checkout" element={<Chekout />} /></Routes>
+        <Route path="/payment" element={ <> <Header /><Elements stripe={ promise }>  <Payment /> </Elements></> } ></Route>
+        <Route path="/addmin" element={ < Dashboard /> } ></Route>
+        <Route path="/addmin/products" element={ < Product /> } ></Route>
+        <Route path="/update/:ID" element={ < EditProduct /> } ></Route>
+        <Route path="/delete/:ID" element={ < Product /> } ></Route>
+        <Route path="/addmin/postProducts" element={ < AddProduct/> } ></Route>
+        <Route path="/addmin/orders" element={ < OrdersFromAddmin/> } ></Route>
+        <Route path="/checkout" element={ <Chekout /> } />
+        <Route path="*" element = {<For04 />}> </Route>
+      </Routes>
     </div>
   );
 }

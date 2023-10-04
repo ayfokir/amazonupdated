@@ -24,5 +24,16 @@
 }
 .checkoutProduct__title{
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 600;
+}
+
+@media(max-width:400px){
+    .checkoutProduct__info button{
+        font-size: 12px;
+    }
+}
+@media(max-width:350px){
+    .checkoutProduct__info button{
+        font-size: 10px;
+    }
 }

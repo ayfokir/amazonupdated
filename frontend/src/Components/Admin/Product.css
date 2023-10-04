@@ -1,0 +1,47 @@
+
+.getproduct{
+    display: flex;
+
+    background-color: whitesmoke;
+    
+}
+.getproduct_product_detail{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.totalProducts{
+    margin-left: 70px;
+   margin-top: -70px;
+
+}
+
+.getproduct_FethedProduct{
+         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+
+.getproduct_FethedProduct .singleImage{
+      padding: 30px;
+      z-index: 1;  /*  above background image display endehone*/  
+}
+
+.horizontalScrollAllow{
+    /* overflow-y: hidden; */
+    overflow-x: scroll;
+}
+
+.getproduct_product_detail button{
+    margin-bottom: 200px;
+    background-color: dodgerblue;
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+}
+
+

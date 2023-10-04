@@ -5,8 +5,8 @@ import { useStatevalue } from '../StateProvider/Stateprovider'
 import CheckoutProduct from '../Chcekout/CheckoutProduct';
 import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
-import axios from '../Axios';
 import { useNavigate } from 'react-router-dom';
+import Ordered from './../Order/Ordered';
 // Elements: stripe metekem sinfelege, stripe yetetekmnbeten component wrape maderegia.   
 function Payment ()
 {
@@ -28,27 +28,43 @@ function Payment ()
   //yehone sew charge sitasderg le strip new tiyake yemeteykew
   //keza esu code ysetehal (yelakelnen code tetekmeh  new sewuyewun charge yemenadergew, yeseten code client secret ybalale )
   // payment yemnlkew codwun ayayzen new.
-  //sent request to strip to get clientSecret.
-
-  // useEffect(() => {
-  //   const getClientSecret = async () => {
-  //     const response = await axios({
-  //       method: "post",
-  //       url: `/payments/create?total = ${getBasketTotal(basket) * 100}` // this 'url' dont have base url, yaleke aydelem;
-  //     });
-  //     setClientSecret( response.data.clientSecret );
-  //     console.log(response.data.clientSecret);
-  //   };
-  //   getClientSecret();
-  // }, [basket]);
-
-
-
-  const getBasketTotal = () => basket?.reduce( ( amount, item ) => item.price + amount, 0 );
+  //sent request to strip to get clientSecret.  
+console.log(basket)
+  const getBasketTotal = () =>
+    basket?.reduce( ( amount, item ) => item.price + amount, 0 );
+  
+  useEffect(() => {
+    const getClientSecret = async () =>
+    {
+      
+      const data = {
+        total: parseInt(( getBasketTotal( basket ) * 100 ))
+      };
+      console.log("the total is "+ data.total );
+      const apiUrl = `http://localhost:7000/payments/create`;
+        const requestOptions = {
+          method: "post", 
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        };
+   const response = fetch(apiUrl, requestOptions);
+  response
+        .then( ( res ) => res.json() )
+        .then ((clientSecret)  => {
+          console.log("yes");
+          console.log( clientSecret );
+          setClientSecret(clientSecret.clientSecret)
+    })
+    .catch((ex) => {
+      console.log(ex.message);
+    });
+    };
+     getClientSecret();
+  }, [ basket ] );
+  
   
   const handleSubmit = async ( e ) =>
   {
-    console.log( basket );
     e.preventDefault();
     setProcessing( true );
     try
@@ -62,25 +78,92 @@ function Payment ()
             card: elements.getElement( CardElement ) // getElement(CardElement) to get the card number, yasgebanewun 
           }
         } )
-        .then( ( { paymentInent } ) =>  
+        .then( ( { paymentIntent } ) =>  
         { //paymentInent: payment confirmation nw
+          console.log( "below is paymentIntent for confirmation, to check is the user charged successfully or not " );
+          console.log(paymentIntent);  
+          // if user is paied successfully then let us send the user product to the database
+
+          function orderInformation ()
+          {
+            const orderInformation = {
+              LogedInUser_id: user?.uid,
+              paymentIntent_id: paymentIntent?.id,
+              amount: paymentIntent.amount/100,
+              created: paymentIntent.created
+            };
+            console.log(orderInformation);
+            // Send the data to the server
+            const apiUrl = "http://localhost:7000/add-orderInformation";
+            const requestOptions = {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(orderInformation)
+            };
+            const response = fetch(apiUrl, requestOptions);
+            response
+              .then((res) => res.json())
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((ex) => {
+                console.log(ex.message);
+              } );
+          }
+          orderInformation();  
+
+          function order ()
+              {
+            for ( let i = 0; i < basket.length; i++ )
+            {
+              const order = {
+                order_title: basket[i].title,
+                order_image:basket[i].image,
+                order_price: basket[i].price,
+                order_rating: basket[i].rating
+              };
+              console.log(order);
+              // Send the data to the server
+              const orderapiUrl = "http://localhost:7000/add-orderInformation";
+              const orderrequestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(order)
+              };
+              const orderresponse = fetch(orderapiUrl, orderrequestOptions);
+              orderresponse
+                .then((res) => res.json())
+                .then((res) => {
+                  console.log(res);
+                })
+                .catch((ex) => {
+                  console.log(ex.message);
+                });
+            }
+          }
+
+           order();
+        
           setSucceeded( true ); //charge siladeregnew(user keflual) chnage into true
           setError( "" );
           setProcessing( false ); //process chersehal lemalet false
           dispatch( {
             type: 'EMPTY_BASKET', //kekefelke buhal basket empty medereg alebet
-          
           } );
-          // navigate("/orders"); userwu keflo kechrese wode gezaw mehede alebet.
+          setTimeout( () =>
+          {
+            navigate( "/orders" ); // userwu keflo kechrese wode gezaw mehede alebet.
+          } , 100)
+            
+      
         } )
+        .catch( ex  => {
+              console.log(ex.message)
+          })
     }
-    catch ( err ) 
+    catch ( ex )   
     {
-      dispatch( {
-        type: "EMPTY_BASKET" //kekefelke buhal basket empty medereg alebet
-      } );
-      navigate('/orders')
-      console.log( order );
+    console.log(ex.message)
     };
   }
 
@@ -128,7 +211,7 @@ function Payment ()
           </div>
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
-              {" "}
+         
               {/* card element lay temolto submit siderege grap lemadereg  */}
               <CardElement onChange={handleChange} />{" "}
               {/*to prepare card element */}

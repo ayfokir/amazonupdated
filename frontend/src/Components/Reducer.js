@@ -49,7 +49,6 @@ const reducer = ( state, action ) => // action, click
     default:
       return state;
   }
-
 }
 export default reducer;
 

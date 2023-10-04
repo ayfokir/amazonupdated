@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css';
 import backgroundimage from '../../CommonResource/images/amazon-Background.png'
 import Product from './Product/Product';
@@ -14,116 +14,52 @@ import tshirt from '../../CommonResource/images/T-shirt.jpg'
 import shoe from '../../CommonResource/images/shoe.jpg'
 import cups from '../../CommonResource/images/newcup.jpg'
 import harryPotter from '../../CommonResource/images/HarryPotter.jpg'
-import DehazeIcon from "@mui/icons-material/Dehaze";
 
 
 
-function Home() {
+
+function Home ()
+{
+   const [ Products, setProducts ] = useState([]);
+  useEffect( () =>
+  {
+   // get the product from the server  
+   const response = fetch("http://localhost:7000/get-product");
+   response
+     .then((res) => res.json())
+     .then( ( res ) =>
+     {
+       console.log("See below the product");
+       console.log( res );
+       setProducts(res)
+     })
+     .catch((ex) => {
+       console.log(ex.message);
+     });
+}, [])
+
+  console.log( Products );
     return (
       <div className="home">
         <div className="home__container ">
           <img className="home__image" src={backgroundimage} alt="" />
         </div>
-        <div className="home__row horizontalScrollAllow">
-          <Product
-            id="12321341"
-            title="Work Out at Home Using Hand Weights"
-            price={11.96}
-            rating={5}
-            image={fitnessNeeds}
-          />
-          <Product
-            id="12321342"
-            title="New Incoming Watch, This is outdated Watch"
-            price={16.96}
-            rating={3}
-            image={watch}
-          />
+        <div className="FethedProduct horizontalScrollAllow" >
+          { Products?.map( singlProduct =>
+          {
+            return <div className='singleImage'>
+              <Product
+                id = {singlProduct?.product_id}
+                title={ singlProduct?.product_title }   
+                price={ singlProduct?.product_price }
+                rating={ singlProduct?.product_rating }
+                image={`http://localhost:7000/images/` + singlProduct?.product_image }
+              />
+              </div>
+          })}
+            
+        </div>
 
-          {/* <Product
-            id="12321345"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={13.96}
-            rating={3}
-            image={children}
-          /> */}
-        </div>
-        <div className="home__row horizontalScrollAllow">
-          <Product
-            id="12321343"
-            title="New Incoming Watch, This is outdated Watch"
-            price={21.96}
-            rating={7}
-            image={watches}
-          />
-          <Product
-            id="12321344"
-            title="Amazing Puppy and Cat Availabe on The market now"
-            price={31.96}
-            rating={2}
-            image={puppy}
-          />
-          <Product
-            id="12321345"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={13.96}
-            rating={3}
-            image={children}
-          />
-          <Product
-            id="12321345"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={13.96}
-            rating={3}
-            image={harryPotter}
-          />
-        </div>
-        <div className="home__row horizontalScrollAllow">
-          <Product
-            id="12321346"
-            title="New Outdated Laddy Dresses"
-            price={19.96}
-            rating={7}
-            image={springNewArrivals}
-          />
-          <Product
-            id="12321346"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={21.96}
-            rating={2}
-            image={cup}
-          />
-          <Product
-            id="12321346"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={51.96}
-            rating={7}
-            image={tshirt}
-          />
-          <Product
-            id="12321346"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={18.96}
-            rating={9}
-            image={shoe}
-          />
-        </div>
-        <div className="home__row horizontalScrollAllow">
-          <Product
-            id="12321346"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={11.96}
-            rating={3}
-            image={cups}
-          />
-          <Product
-            id="12321346"
-            title="Father with his son. douther need to wait so many times with her fathers"
-            price={13.96}
-            rating={7}
-            image={camera}
-          />
-        </div>
       </div>
     );
 }

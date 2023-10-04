@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { StateProvider } from './Components/StateProvider/Stateprovider';
 import reducer, { initialState } from './Components/Reducer';
+import { ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
-
 root.render(
   // <React.StrictMode>
       <BrowserRouter>
-      <StateProvider  initialState={initialState} reducer={reducer}>       
+    <StateProvider initialState={ initialState } reducer={ reducer }>   
+      <ToastContainer />
       <App />
       </StateProvider> 
   </BrowserRouter>

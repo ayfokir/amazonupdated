@@ -1,0 +1,6 @@
+.totalOrders{
+    display: flex;
+}
+.totalOrders_adminOrder{
+    margin-top: 40px;
+}

@@ -1,0 +1,34 @@
+       .dashboard{
+        display: flex;
+    }
+    .dashboard_mainpart{
+    background-color: whitesmoke;
+    margin-left: 50px;
+    width: 80%;
+}
+.dashboard_mainpart .h1{
+    padding-left: 70px;
+    margin-bottom: 30px;
+}
+.dashboard_mainpart_detail{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.dashboard_mainpart_detail_detail .amount
+{
+ padding-top: 4px; 
+}
+
+.dashboard_mainpart_detail_detail{
+    padding: 6px;
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    background-color: white;
+    /* padding-left: 30px; */
+}
+.dashboard_mainpart_detail_detail{
+    
+    padding-right: 90px;
+}

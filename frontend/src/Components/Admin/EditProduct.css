@@ -1,0 +1,68 @@
+.editproductsPage{
+    display: flex;
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+   
+}
+
+ .editproductsPage_publish{
+    display: flex;
+ 
+}
+
+.editproductsPage_edit{
+ margin: 80px 0 0 80px;
+
+}
+
+.editproductsPage .edit_Product{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.editproductsPage_publish .button2{
+    position: absolute;
+    right: 60px;
+    width: 150px;
+    height: 40px;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+}
+
+.editproductsPage_publish .button1{
+width: 150px;
+height: 40px;
+background-color: red;
+border: none;
+cursor: pointer;
+}
+
+.editproductsPage_publish .h1{
+  margin-left: 500px;
+}
+
+.edit_Product{
+    width: 1000px;
+    border:  1px solid rgba(0, 0, 0, 0.2);
+    background-color: white;
+    padding: 20px;
+}
+#addProductForm button {
+  width: 110px;
+}
+.edit_Product input {
+    padding: 9px;
+    width: 300px;
+}
+#title, #image, #price, #rating{
+margin-bottom: 20px;
+}
+
+.edit_Product button{
+    width: 100px;
+    height: 30px;
+    background-color: dodgerblue;
+    border: none;
+    cursor: pointer;
+}

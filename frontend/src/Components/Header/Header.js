@@ -50,7 +50,7 @@ function Header ()
           <SearchIcon className="header__searchIcon" />
         </div>
 
-        <div className= {`header__nav`} >
+        <div className={`header__nav`}>
           <Link to={!state.user && "/login"} style={{ textDecoration: "none" }}>
             <div className="header__option" onClick={handleAuthentication}>
               <span className="header__optionLineOne">
@@ -61,10 +61,12 @@ function Header ()
               </span>
             </div>
           </Link>
-          <div className="header__option">
-            <span className="header__optionLineOne">Return </span>
-            <span className="header__optionLineTwo">& Orders</span>
-          </div>
+          <Link to="/orders" style={{ textDecoration: "none" }}>
+            <div className="header__option">
+              <span className="header__optionLineOne">Return </span>
+              <span className="header__optionLineTwo">& Orders</span>
+            </div>
+          </Link>
           <div className="header__option">
             <span className="header__optionLineOne">Your </span>
             <span className="header__optionLineTwo">Prime</span>
@@ -83,10 +85,7 @@ function Header ()
           {<DehazeIcon onClick={handleNavbar} />}
         </div>
       </div>
-      {
-        value? <SubNavbaratSmallDevice /> : ""
-      }
-
+      {value ? <SubNavbaratSmallDevice /> : ""}
     </>
   );
 }
