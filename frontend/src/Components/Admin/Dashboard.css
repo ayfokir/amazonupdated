@@ -1,4 +1,4 @@
-       .dashboard{
+    .dashboard{
         display: flex;
     }
     .dashboard_mainpart{
@@ -9,6 +9,8 @@
 .dashboard_mainpart .h1{
     padding-left: 70px;
     margin-bottom: 30px;
+    font-weight: 500;
+    margin-top: 40px;
 }
 .dashboard_mainpart_detail{
     display: flex;
@@ -21,12 +23,13 @@
 }
 
 .dashboard_mainpart_detail_detail{
-    padding: 6px;
+    padding: 20px;
     cursor: pointer;
     width: 150px;
     display: flex;
     background-color: white;
     /* padding-left: 30px; */
+    border-radius: 8px;
 }
 .dashboard_mainpart_detail_detail{
     

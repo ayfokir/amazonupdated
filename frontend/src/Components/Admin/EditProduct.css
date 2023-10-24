@@ -40,6 +40,7 @@ cursor: pointer;
 
 .editproductsPage_publish .h1{
   margin-left: 500px;
+  font-weight: 400;
 }
 
 .edit_Product{
@@ -48,9 +49,9 @@ cursor: pointer;
     background-color: white;
     padding: 20px;
 }
-#addProductForm button {
+/* #addProductForm button {
   width: 110px;
-}
+} */
 .edit_Product input {
     padding: 9px;
     width: 300px;
@@ -60,9 +61,11 @@ margin-bottom: 20px;
 }
 
 .edit_Product button{
-    width: 100px;
-    height: 30px;
-    background-color: dodgerblue;
+     width: 150px;
+    height: 40px;
+    background-color: green;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    color: white;
 }

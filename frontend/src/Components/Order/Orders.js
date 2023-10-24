@@ -18,12 +18,15 @@ function Orders({ latest, adminOrder }) {
       .catch((ex) => {
         console.log(ex.message);
       });
-  });
-
+  } );
+  const myStyle = {
+    fontWeight: "500",
+    fontSize: "30px",
+  };
   // console.log(orders);
   return (
     <div className="orders">
-      {!latest ? <h1>{!adminOrder ? <h1>Your Orders </h1> : <h1>Total Orders </h1>} </h1> : <h1> Latest Orders</h1>}
+      {!latest ? <h1>{!adminOrder ? <h1  style={myStyle} >Your Orders </h1> : <h1 style={myStyle}>Total Orders </h1>} </h1> : <h1 style={myStyle}> Latest Orders</h1>}
 
       <div className="orders__order">
         {orders.map((order) => {

@@ -15,6 +15,9 @@
    margin-top: -70px;
 
 }
+.getproduct_product_detail h1 {
+    font-weight: 500;
+}
 
 .getproduct_FethedProduct{
          display: flex;
@@ -34,12 +37,13 @@
 
 .getproduct_product_detail button{
     margin-bottom: 200px;
-    background-color: dodgerblue;
+    width: 150px;
+    height: 40px;
+    background-color: green;
     border: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 5px;
+    color: white;
     position: absolute;
     right: 50px;
 }

@@ -10,7 +10,9 @@ async function addProductImage(req, res) {
   console.log(req.file);
 
   // Call the employee service to add an employee to the database
-  const producteAdded = await productImageService.addProductImage(req.file);
+  const producteAdded = await productImageService.addProductImage( req.file );
+  console.log( "below is image added  ayfo" )
+  console.log(req.file)
   // If the employee is added successfully, return success response. Otherwise, return failure response
   console.log("Image is Added Successfully")
   console.log(producteAdded);

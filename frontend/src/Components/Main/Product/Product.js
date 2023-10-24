@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { toast } from "react-toastify";
+import { IconButton } from "@mui/material";
 function Product ( { id, title, image, price, rating, admin } )
 {
-  // const [ { basket }, dispatch ] = useStatevalue();
+  // const [ { basket }, dispatch ] = useStatevalue(); or we can use just like below
   const [{ basket }, dispatch] = useContext(StateContext);
 
-  let updated = "/update/" + id;
-  let deleted = "/delete/" + id;
+  let updated = "/update/" + id;    
+  let deleted = "/delete/" + id;    
 
   function deletes (e){ 
       e.preventDefault();
@@ -34,7 +35,7 @@ function Product ( { id, title, image, price, rating, admin } )
       draggable: true,
       progress: undefined,
       theme: "light"
-    });
+    });  
   });
     setTimeout( () =>
     {
@@ -89,8 +90,11 @@ function Product ( { id, title, image, price, rating, admin } )
       ) : (
         <div className="update_and_delete">
           <Link to={updated}>
-            <button className="update">
-              <EditIcon sx={{ color: "green" }} className="editIcon" />
+              <button className="update">
+                
+              <IconButton>
+                <EditIcon sx={{ color: "green" }} className="editIcon" />
+              </IconButton>
             </button>
           </Link>
           <button className="delete" onClick={deletes}>

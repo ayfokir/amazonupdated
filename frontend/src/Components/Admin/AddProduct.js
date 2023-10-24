@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from './Sidebar';
 import { Link} from "react-router-dom";
 import Header from '../Header/Header';
@@ -125,6 +125,10 @@ function EditProduct ()
     }
   }
   
+useEffect(() => {
+  document.getElementById("title").focus();
+}, []);
+  
   return (
     <>
       <Header />
@@ -153,7 +157,7 @@ function EditProduct ()
         <label htmlFor="image">Add Image</label><br />
         <input type="file" id="image" className='addImage' name="image"  onChange={ event => setProductimage( event.target.files[0] ) } />
         </div> <br />
-        <button type='submit' >Add Product</button>
+        <button type='submit' className='edit_Product_button'>Add Product</button>
         </form>
           </div>
           

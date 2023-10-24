@@ -7,6 +7,7 @@ import { useElements, useStripe, CardElement } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { useNavigate } from 'react-router-dom';
 import Ordered from './../Order/Ordered';
+import Footer from '../Footer/Footer'
 // Elements: stripe metekem sinfelege, stripe yetetekmnbeten component wrape maderegia.   
 function Payment ()
 {
@@ -233,8 +234,8 @@ console.log(basket)
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
-
-  export default Payment;
+export default Payment;

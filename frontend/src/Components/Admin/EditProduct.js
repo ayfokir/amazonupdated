@@ -158,6 +158,9 @@ function EditProduct ()
         }
   }
   
+// useEffect(() => {
+//   document.getElementById("title").focus();
+// }, []);
   return (
         <>
         <Header />

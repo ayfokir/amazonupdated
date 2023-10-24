@@ -68,12 +68,12 @@ function App() {
         <Route path="/orders" element={ <><Header /> <Orders />  </> } > </Route>
         <Route path="/" element={ <>   <Header /> <Home /> <Footer /> </> }></Route>
         <Route path="/payment" element={ <> <Header /><Elements stripe={ promise }>  <Payment /> </Elements></> } ></Route>
-        <Route path="/addmin" element={ < Dashboard /> } ></Route>
-        <Route path="/addmin/products" element={ < Product /> } ></Route>
+        <Route path="/admin" element={ < Dashboard /> } ></Route>
+        <Route path="/admin/products" element={ < Product /> } ></Route>
         <Route path="/update/:ID" element={ < EditProduct /> } ></Route>
         <Route path="/delete/:ID" element={ < Product /> } ></Route>
-        <Route path="/addmin/postProducts" element={ < AddProduct/> } ></Route>
-        <Route path="/addmin/orders" element={ < OrdersFromAddmin/> } ></Route>
+        <Route path="/admin/postProducts" element={ < AddProduct/> } ></Route>
+        <Route path="/admin/orders" element={ < OrdersFromAddmin/> } ></Route>
         <Route path="/checkout" element={ <Chekout /> } />
         <Route path="*" element = {<For04 />}> </Route>
       </Routes>

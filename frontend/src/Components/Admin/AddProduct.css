@@ -26,6 +26,8 @@
     background-color: green;
     border: none;
     cursor: pointer;
+    color: white;
+    border-radius: 5px;
 }
 .fileInput{
     margin-top: -20px;
@@ -34,7 +36,7 @@
 
 
 .addImage{
-    margin-left: 110px;
+    margin-left: 310px;
     margin-top: 10px;
 }
 
@@ -47,6 +49,8 @@ height: 40px;
 background-color: red;
 border: none;
 cursor: pointer;
+color: white;
+border-radius: 5px;
 }
 
 .editproductsPage_publish .h1{
@@ -55,14 +59,20 @@ cursor: pointer;
 
 .edit_Product{
     width: 1000px;
-    border:  1px solid rgba(0, 0, 0, 0.2);
+  border: 1.9px solid rgba(0, 0, 0, .09);
     background-color: white;
     padding: 20px;
 }
 
 .edit_Product input {
-    padding: 9px;
-    width: 300px;
+    padding: 12px;
+    width: 500px;
+    margin-top: 8PX;
+    border-radius: 5px;
+    border: 1.99px solid rgba(0, 0, 0, .3);
+}
+.fileInput input {
+    border: none;
 }
 #title, #image, #price{
 margin-bottom: 20px;
@@ -71,10 +81,13 @@ margin-bottom: 20px;
 .image{
     margin-top: -20px;
 }
-.edit_Product button{
-    width: 100px;
-    height: 30px;
-    background-color: dodgerblue;
+.edit_Product .edit_Product_button{
+    width: 150px;
+    height: 40px;
+    background-color: green;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    color: white;
+
 }

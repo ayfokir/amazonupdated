@@ -11,22 +11,22 @@ const Sidebar = () =>
       <div className="sidebar">
         <ul>
           <Link
-            to="/addmin"
+            to="/admin"
             className="sidebar_part"
             style={{ textDecoration: "none" }}
           >
             <HouseSidingIcon />
             <li>Dashboard</li>
           </Link>
-          <Link to="/addmin/products" className="sidebar_part">
+          <Link to="/admin/products" className="sidebar_part">
             <EnhancedEncryptionIcon />
             <li>Products</li>
           </Link>
-          <Link to="/addmin/postProducts" className="sidebar_part">
+          <Link to="/admin/postProducts" className="sidebar_part">
             <ShoppingCartIcon />
             <li>Add Products</li>
           </Link>
-          <Link to="/addmin/orders" className="sidebar_part">
+          <Link to="/admin/orders" className="sidebar_part">
             <LockPersonIcon />
             <li>Orders</li>
           </Link>

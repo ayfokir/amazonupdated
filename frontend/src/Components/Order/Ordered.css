@@ -15,6 +15,10 @@ background-color:white;
 position: relative;
 
  }
+
+ .order h2 {
+    font-weight: 500;
+ }
  .order_id{
     position: absolute;
     top: 40px;

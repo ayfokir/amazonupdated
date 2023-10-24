@@ -3,6 +3,7 @@ import './Ordered.css'
 import CheckoutProduct from '../Chcekout/CheckoutProduct';
 import moment from 'moment'
 import CurrencyFormat from 'react-currency-format';
+import Order from './../Admin/Order';
 function Ordered ( { order } )
 {
   const [ orders, setOrders ] = useState( [] );
@@ -24,7 +25,7 @@ function Ordered ( { order } )
         console.log( ex.message );
       } );
   }, [] );
-  
+  console.log( order?.created)
   return (
     <div>
       {/* <div className="order">
