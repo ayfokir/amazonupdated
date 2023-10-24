@@ -81,7 +81,7 @@ function EditProduct ()
       
     //Send the data to the server
     const dataUrl = `http://localhost:7000/add-product`;
-      if ( product_price || product_rating || product_title )
+      if ( product_price && product_rating && product_title )
       {
         axios
           .post(dataUrl, data)

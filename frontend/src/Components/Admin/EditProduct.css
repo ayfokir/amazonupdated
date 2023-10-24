@@ -38,10 +38,14 @@ border: none;
 cursor: pointer;
 }
 
+<<<<<<< HEAD
 .editproductsPage_publish .h1{
   margin-left: 500px;
   font-weight: 400;
 }
+=======
+
+>>>>>>> 4f874864bbf486cee0a7c92b31334e9b582dbc69
 
 .edit_Product{
     width: 1000px;

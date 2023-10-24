@@ -22,11 +22,11 @@ pool.getConnection((err) => {
   console.log("connected");
 } );
 
-var sql = "DELETE FROM product_imagetable WHERE productimage_id = ?";
-pool.query(sql, [33], function (err, result) {
-  if (err) throw err;
-  console.log("Number of records deleted: " + result.affectedRows);
-});
+// var sql = "DELETE FROM product_imagetable WHERE productimage_id = ?";
+// pool.query(sql, [33], function (err, result) {
+//   if (err) throw err;
+//   console.log("Number of records deleted: " + result.affectedRows);
+// });
 
 module.exports = { query, pool };
   
