@@ -3,7 +3,9 @@ const cors = require( 'cors' );
 require( 'dotenv' ).config();
   const stripe = require("stripe")("sk_test_51NXOrgCBiUKA11IcQrbtvTcCLOSAjkmNjf323D8TflpFiAFag8AFSDGvW9NQjfKC7Neh1KVImMXlf6HM6StDWgEV0002nXmdPT");
 // the above is stripe secret key
-      
+    
+
+
 const app = express();             
 const router = require('./router')         
 app.use( cors() );    
